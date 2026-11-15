@@ -63,17 +63,29 @@ test('reads an expense from the sanitized fixture', () => {
   dom.window.close();
 });
 
-test('reads a deposit from the sanitized fixture', () => {
+test('directs non-zero deposits to the Giving module', () => {
   const dom = readerForFixture('deposit.html');
+  assert.throws(
+    () => dom.window.TransactionReader.readEnteredTransaction(),
+    /Enter non-zero deposits through the Giving module/
+  );
+  dom.window.close();
+});
+
+test('allows a zero-total deposit journal entry', () => {
+  const dom = readerForFixture('deposit-journal.html');
   const captured = dom.window.TransactionReader.readEnteredTransaction();
   assert.equal(captured.paymentTypeId, '1');
   assert.equal(captured.paymentType, 'Income');
-  assert.equal(captured.payee, 'Jordan Lee');
-  assert.equal(captured.memo, 'Summer outreach gift');
-  assert.equal(captured.total, '75.00');
+  assert.equal(captured.payee, 'Fund Reallocation');
+  assert.equal(captured.memo, 'Move gift allocation between funds');
+  assert.equal(captured.total, '0.00');
+  assert.equal(captured.lines.length, 2);
   assert.equal(captured.lines[0].categoryLabel, 'Donations');
   assert.equal(captured.lines[0].fundLabel, 'Community Fund');
   assert.equal(captured.lines[0].amount, '75.00');
+  assert.equal(captured.lines[1].fundLabel, 'Operations Fund');
+  assert.equal(captured.lines[1].amount, '-75.00');
   dom.window.close();
 });
 

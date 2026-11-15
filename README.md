@@ -9,16 +9,16 @@ An independent Chrome extension for memorizing and applying transactions in comp
 3. Turn on **Developer mode**.
 4. Click **Load unpacked** and select this project folder—the folder with `manifest.json` at its top level. Do not select `test`.
 5. Confirm that MemTx appears in the extensions list. Pin its icon from Chrome’s Extensions menu if you want quick access.
-6. Open the supported accounting software in Chrome and sign in. MemTx currently runs on pages at `churchtrac.com` and `www.churchtrac.com`. Open an existing manual expense, deposit, or account-to-account transfer and click the MemTx toolbar icon to memorize it. To apply a saved transaction, open a blank **New Transaction** dialog and click the icon.
+6. Open the supported accounting software in Chrome and sign in. MemTx currently runs on pages at `churchtrac.com` and `www.churchtrac.com`. Open an existing manual expense, zero-total deposit journal entry, or account-to-account transfer and click the MemTx toolbar icon to memorize it. To apply a saved transaction, open a blank **New Transaction** dialog and click the icon.
 7. Simulation mode is on by default. Applying a saved transaction shows a preview without filling the form. To allow MemTx to fill the form, open `chrome://extensions`, select **Details** for MemTx, choose **Extension options**, and turn off simulation mode. Review all fields; MemTx does not save the transaction.
 
 After changing extension files, click MemTx’s **Reload** icon on `chrome://extensions`, then refresh the accounting software tab. See Chrome’s [unpacked extension instructions](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) for more detail.
 
 ## Memorize transactions
 
-Click MemTx while an existing manual expense, deposit, or account transfer is open. MemTx reads the transaction and saves its details in the extension; it does not change the transaction in the accounting software. Reconciled transactions can be memorized.
+Click MemTx while an existing manual expense, zero-total deposit journal entry, or account transfer is open. MemTx reads the transaction and saves its details in the extension; it does not change the transaction in the accounting software. Reconciled transactions can be memorized. MemTx does not memorize deposits with non-zero totals; enter those through the Giving module.
 
-Expense and deposit entries store the payee, payment type, nonnumeric reference, total, memo, and ordered category, fund, amount, and note lines. Account transfer entries also store the transfer direction, the active source account, the target account, and ordered fund and amount lines. Numeric references, such as check numbers, are omitted. MemTx reports a duplicate instead of adding an entry when its normalized transaction details already exist; transfer matching includes the source account, target account, and direction.
+Expense entries and zero-total deposit journal entries store the payee, payment type, nonnumeric reference, total, memo, and ordered category, fund, amount, and note lines. Account transfer entries also store the transfer direction, the active source account, the target account, and ordered fund and amount lines. Numeric references, such as check numbers, are omitted. MemTx reports a duplicate instead of adding an entry when its normalized transaction details already exist; transfer matching includes the source account, target account, and direction.
 
 ## Apply transactions
 
@@ -36,7 +36,7 @@ MemTx keeps its working config in `chrome.storage.local`. Open **Extension optio
 
 ## Supported transactions
 
-- Manual expenses and deposits can be memorized and applied to a blank new transaction.
+- Manual expenses and zero-total deposit journal entries can be memorized and applied to a blank new transaction. Use the Giving module for deposits with non-zero totals.
 - Account-to-account transfers can be memorized and applied only when the blank new transaction is open in the same source account.
 - Fund-to-fund transfers are not supported.
 - Memorized entries cannot be edited in place. Export the config, edit it, and import it again to change an entry.

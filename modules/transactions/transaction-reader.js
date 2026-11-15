@@ -68,6 +68,9 @@
     if (isAccountTransfer && !sourceAccount.id) throw new Error('Transfer source account is not available.');
     const totalElement = container.querySelector(isAccountTransfer ? '#transfer-total' : '#TransactionTotal');
     const totalCents = root.MoneyUtils.toCents(totalElement.textContent.trim().replace(/,/g, '') || '0');
+    if (type.value === '1' && totalCents !== 0) {
+      throw new Error('MemTx cannot memorize deposits with a non-zero total. Enter deposits through the Giving module. Zero-total journal entries can still be memorized as deposits.');
+    }
     if (totalCents < 0) throw new Error('Transaction total must be non-negative.');
     const lines = Array.from(container.querySelectorAll(isAccountTransfer
       ? '#transfer-splits-div .transfer-split-row'

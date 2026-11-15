@@ -120,10 +120,10 @@ function renderGrid() {
       confirmPanel.style.cssText = 'width:min(400px,calc(100vw - 32px));max-height:calc(100vh - 32px);overflow:auto;box-sizing:border-box;background:#fff;color:#222;padding:20px;border-radius:10px;box-shadow:0 12px 40px #0005';
       const confirmTitle = document.createElement('h3');
       confirmTitle.id = 'memtx-options-remove-title';
-      confirmTitle.textContent = 'Remove MemTx entry?';
+      confirmTitle.textContent = `Remove memorized transaction “${transaction.payee}”?`;
       confirmTitle.style.margin = '0 0 8px';
       const prompt = document.createElement('p');
-      prompt.textContent = `Remove “${transaction.payee}” from MemTx?`;
+      prompt.textContent = `Choosing 'Yes' will not impact existing transactions in your account.`;
       prompt.style.margin = '0';
       const buttons = document.createElement('div');
       buttons.style.cssText = 'display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap;margin-top:18px';
