@@ -1,0 +1,35 @@
+<!doctype html>
+<div id="bfallr" class="open" role="dialog" aria-modal="true">
+  <section id="transaction-view">
+    <h4 data-lang="edit_transaction">Edit Transaction</h4>
+    <div class="small text-muted mr-3">Community Checking</div>
+    <form id="newtransactionform">
+      <input type="hidden" id="TransactionID" value="10001">
+      <input type="hidden" name="AccountID" value="1001">
+      <select id="TransactionType" name="TransactionType">
+        <option value="0" selected>Account-to-Account Transfer</option>
+      </select>
+      <input id="Reference" name="Reference" value="MOVE-2048">
+      <input id="Payee" name="Payee" value="Reserve Contribution">
+      <div id="TransactionTotal">-125.00</div>
+      <select id="transfer-to-from" name="TransferToFrom">
+        <option value="-1" selected>To</option>
+        <option value="1">From</option>
+      </select>
+      <select id="TargetAccount" name="TargetAccount">
+        <option value="2002" selected>Building Reserve Savings</option>
+      </select>
+      <div id="splitdiv"></div>
+      <div id="transfer-splits-div">
+        <div class="transfer-split-row">
+          <select name="TransferFund[]">
+            <option value="1" selected>General Fund</option>
+          </select>
+          <input name="TransferAmount[]" value="125.00">
+        </div>
+      </div>
+      <div id="transfer-total">125.00</div>
+      <input id="TransactionMemo" name="TransactionMemo" value="Quarterly reserve contribution">
+    </form>
+  </section>
+</div>

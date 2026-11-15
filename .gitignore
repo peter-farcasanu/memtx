@@ -1,0 +1,27 @@
+# macOS metadata
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Node.js dependencies and generated test output
+node_modules/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+*.log
+
+# Local secrets and extension signing keys
+.env
+.env.*
+!.env.example
+*.pem
+
+# Packaged browser extension artifacts
+*.crx
+web-ext-artifacts/
+
+# ChurchTrac HTML samples
+html-samples**/

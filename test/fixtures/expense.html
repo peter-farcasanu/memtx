@@ -1,0 +1,27 @@
+<!doctype html>
+<div id="bfallr" class="open" role="dialog" aria-modal="true">
+  <section id="transaction-view">
+    <h4 data-lang="edit_transaction">Edit Transaction</h4>
+    <form id="newtransactionform">
+      <input type="hidden" id="TransactionID" value="20001">
+      <select id="TransactionType" name="TransactionType">
+        <option value="-1" selected>Expense</option>
+        <option value="1">Income</option>
+      </select>
+      <input id="Payee" name="Payee" value="Office Supply INC">
+      <select id="payee-select"></select>
+      <input id="Reference" name="Reference" value="Invoice Test-01">
+      <select id="reference-select"><option value=""></option></select>
+      <input id="TransactionMemo" name="TransactionMemo" value="stationery">
+      <div id="splitdiv">
+        <div class="splitrow">
+          <select name="Category[]"><option value="21" selected>Office Supplies</option></select>
+          <select name="Fund[]"><option value="1" selected>General Fund</option></select>
+          <input name="Amount[]" value="42.50">
+          <input name="Note[]" value="Printer paper and folders">
+        </div>
+      </div>
+      <div id="TransactionTotal">42.50</div>
+    </form>
+  </section>
+</div>

@@ -1,0 +1,27 @@
+<!doctype html>
+<div id="bfallr" class="open" role="dialog" aria-modal="true">
+  <section id="transaction-view">
+    <h4 data-lang="edit_transaction">Edit Transaction</h4>
+    <form id="newtransactionform">
+      <input type="hidden" id="TransactionID" value="20002">
+      <select id="TransactionType" name="TransactionType">
+        <option value="-1">Expense</option>
+        <option value="1" selected>Income</option>
+      </select>
+      <input id="Payee" name="Payee" value="Jordan Lee">
+      <select id="payee-select"></select>
+      <input id="Reference" name="Reference" value="">
+      <select id="reference-select"><option value=""></option></select>
+      <input id="TransactionMemo" name="TransactionMemo" value="Summer outreach gift">
+      <div id="splitdiv">
+        <div class="splitrow">
+          <select name="Category[]"><option value="31" selected>Donations</option></select>
+          <select name="Fund[]"><option value="2" selected>Community Fund</option></select>
+          <input name="Amount[]" value="75.00">
+          <input name="Note[]" value="">
+        </div>
+      </div>
+      <div id="TransactionTotal">75.00</div>
+    </form>
+  </section>
+</div>

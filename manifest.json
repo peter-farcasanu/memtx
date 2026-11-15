@@ -1,0 +1,51 @@
+
+{
+  "manifest_version": 3,
+  "name": "MemTx",
+  "version": "1.0.0",
+  "description": "MemTx memorizes and applies ChurchTrac transaction details.",
+  "permissions": ["storage"],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.churchtrac.com/*", "https://churchtrac.com/*"],
+      "js": [
+        "modules/shared/money-utils.js",
+        "modules/config/config-validator.js",
+        "modules/config/config-loader.js",
+        "modules/transactions/transaction-reader.js",
+        "modules/transactions/memorized-transaction.js",
+        "modules/ui/memorized-transaction-selector.js",
+        "modules/splitting/page-bridge-client.js",
+        "modules/splitting/page-adapter.js",
+        "modules/memorized-transactions/orchestrator.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["modules/splitting/page-bridge.js"],
+      "matches": ["https://www.churchtrac.com/*", "https://churchtrac.com/*"]
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MemTx Options</title>
+  <style>
+    body{font:15px system-ui,sans-serif;max-width:1060px;margin:40px auto;padding:0 20px;color:#222}
+    button{padding:8px 12px;margin:8px 8px 8px 0}label{display:block;margin:20px 0}
+    #status{min-height:1.5em;white-space:pre-line}#status ul{margin:6px 0;padding-left:22px}input[type=file]{display:block;margin:12px 0}#config-file[hidden]{display:none}
+  </style>
+</head>
+<body>
+  <h1>MemTx</h1>
+  <p>Review memorized transactions, load and export a portable configuration file, change simulation mode instantly.</p>
+  <h2>MemTx Transactions</h2>
+  <div id="memorized-grid"></div>
+  <h2>Configuration load/export</h2>
+  <input id="config-file" type="file" accept=".json,application/json" hidden>
+  <button id="load" type="button">Load configuration</button>
+  <button id="export" type="button">Export configuration</button>
+  <p id="status" role="status" aria-live="polite"></p>
+  <label><input id="simulation" type="checkbox"> Simulate applying transactions (memorizing remains enabled)</label>
+  <script src="modules/shared/money-utils.js"></script>
+  <script src="modules/transactions/memorized-transaction.js"></script>
+  <script src="modules/config/config-validator.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "memtx-extension",
+  "private": true,
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "test:coverage": "node --experimental-test-coverage --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "jsdom": "^31.0.1"
+  }
+}
